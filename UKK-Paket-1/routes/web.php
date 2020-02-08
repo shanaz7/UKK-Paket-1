@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'students'], function () {
     Route::get('/', 'StudentsController@index');
 });
+
+Route::get('/class','ClassController@index');
+Route::get('/class/create','ClassController@create');
+Route::post('/class/store','ClassController@store');
