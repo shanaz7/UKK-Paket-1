@@ -29,4 +29,29 @@ class ClassController extends Controller
 
         return redirect('/class');
     }
+
+    public function edit($id){
+        $class = Classes::find($id);
+        return view('class.edit',['class' => $class]);
+    }
+
+    public function update($id, Request $request){
+        $this->validate($request,[
+            'class_name' => 'required',
+            'expertise_competence' => 'required' 
+        ]);
+
+        $class = Classes::find($id);
+        $class->class_name = $request->class_name;
+        $class->expertise_competence = $request->expertise_competence;
+        $class->save();
+
+        return redirect('/class');
+    }
+
+    public function destroy($id){
+        $class = Classes::find($id);
+        $class->delete();
+        return redirect('/class');
+    }
 }

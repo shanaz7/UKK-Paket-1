@@ -16,6 +16,7 @@
             <tr>
                 <th>Class Name</th>
                 <th>Expertise Competence</th>
+                <th>Option</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
             <tr>
                 <td>{{ $c->class_name }}</td>
                 <td>{{ $c->expertise_competence }}</td>
+                <td>
+                    <a href="/class/edit/{{ $c->id }}">Edit</a>
+                    <a href="/class/delete/{{ $c->id }}">Delete</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
